@@ -7,20 +7,23 @@ const calculatorSlice = createSlice({
     },
     reducers: {
         add: (state, action) => {
-            state.value += Number(action.payload)
+            state.value = state.value + Number(action.payload)
         },
         substract: (state, action) => {
-            state.value -= Number(action.payload)
+            state.value = state.value - Number(action.payload)
         },
         division: (state, action) => {
-            if (Number(action.payload) !== 0){
+            if (Number(action.payload) !== 0) {
 
-                state.value /= Number(action.payload)
+                state.value = state.value / Number(action.payload)
 
             }
         },
         multiply: (state, action) => {
-            state.value *= Number(action.payload)
+            state.value = state.value * Number(action.payload)
+        },
+        modulo: (state, action) => {
+            state.value = state.value % Number(action.payload)
         },
 
         clear: (state) => {
