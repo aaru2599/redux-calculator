@@ -6,6 +6,10 @@ const Calculator = () => {
     const [inputVal, setInputVal] = useState("")
     const result = useSelector((state) => state.myCalculator.value)
     const dispatch = useDispatch();
+
+    const getNumInput = (num) => {
+        setInputVal(inputVal + num)
+    }
     const onClickAdd = () => {
         if (inputVal !== "") {
             dispatch(add(inputVal))
@@ -53,6 +57,28 @@ const Calculator = () => {
                 />
                 <h3>Result:{result}</h3>
 
+
+
+            </div>
+            <div >
+                <div className='p-2 d-flex gap-3'>
+                    <button className='btn btn-primary' onClick={() => getNumInput("1")}>1</button>
+                    <button className='btn btn-primary' onClick={() => getNumInput("2")}>2</button>
+                    <button className='btn btn-primary' onClick={() => getNumInput("3")}>3</button>
+                </div>
+                <div className='p-2 d-flex gap-3'>
+                    <button className='btn btn-secondary' onClick={() => getNumInput("4")}>4</button>
+                    <button className='btn btn-secondary' onClick={() => getNumInput("5")}>5</button>
+                    <button className='btn btn-secondary' onClick={() => getNumInput("6")}>6</button>
+                </div>
+                <div className='p-2 d-flex gap-3'>
+                    <button className='btn btn-success' onClick={() => getNumInput("7")}>7</button>
+                    <button className='btn btn-success' onClick={() => getNumInput("8")}>8</button>
+                    <button className='btn btn-success' onClick={() => getNumInput("9")}>9</button>
+                </div >
+                 <div className='p-2 d-flex gap-3'>
+                    <button className='btn btn-danger' onClick={() => getNumInput("0")}>0</button>
+                </div>
             </div>
             <div className='d-flex gap-3 mt-2'>
                 <button className='btn btn-primary' onClick={onClickAdd}>+</button>
