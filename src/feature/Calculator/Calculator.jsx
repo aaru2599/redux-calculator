@@ -5,6 +5,7 @@ import { add, clear, division, multiply, substract } from './Calculator.Slice'
 const Calculator = () => {
     const [inputVal, setInputVal] = useState("")
     const result = useSelector((state) => state.myCalculator.value)
+    console.log(inputVal);
     const dispatch = useDispatch();
 
     const getNumInput = (num) => {
@@ -45,7 +46,19 @@ const Calculator = () => {
         dispatch(clear())
         setInputVal("")
     }
-    console.log("result", result);
+    const OnClickBack = () => {
+        if (inputVal.length > 0) {
+            const newInputVal = inputVal.slice(0, -1);
+            setInputVal(newInputVal);
+        }
+    }
+    const OnClickEqual = () => {
+        if (inputVal !== "") {
+            dispatch(add(inputVal));
+            setInputVal("");
+        }
+    };
+    // console.log("result", result);
     return (
         <div>
             <h2>Calculator</h2>
@@ -76,7 +89,7 @@ const Calculator = () => {
                     <button className='btn btn-success' onClick={() => getNumInput("8")}>8</button>
                     <button className='btn btn-success' onClick={() => getNumInput("9")}>9</button>
                 </div >
-                 <div className='p-2 d-flex gap-3'>
+                <div className='p-2 d-flex gap-3'>
                     <button className='btn btn-danger' onClick={() => getNumInput("0")}>0</button>
                 </div>
             </div>
@@ -87,6 +100,10 @@ const Calculator = () => {
                 <button className='btn btn-secondary' onClick={onClickDiv}>/</button>
                 <button className='btn btn-secondary' onClick={onClickMod}>%</button>
                 <button className='btn btn' onClick={OnClickClear}>Clear</button>
+                <button className='btn btn' onClick={OnClickBack}>Back</button>
+                <button className="btn btn-success" onClick={OnClickEqual}>
+                    =
+                </button>
             </div>
 
 

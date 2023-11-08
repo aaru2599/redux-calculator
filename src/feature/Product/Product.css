@@ -1,0 +1,48 @@
+/* Card container */
+.item-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Image styling */
+.input-image {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 10px;
+}
+
+/* Text container styling */
+.item-card div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Title styling */
+.item-card p {
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Button styling */
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.product-list{
+    display: flex;
+    flex-wrap: wrap;
+}
