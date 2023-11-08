@@ -42,7 +42,7 @@ const CartLayout = () => {
                   cartData.map((item) => {
                     return (
                       <tr>
-                        {/* <th scope="row"><img src={item.image} width={20} alt="" /></th> */}
+                        <th scope="row"><img src={item.image} width={20} alt="" /></th>
                         <td>{item.title}</td>
                         <td>${item.price * item.count}</td>
                         <td className='d-flex gap-2'>

@@ -5,14 +5,14 @@ import { addToCart } from './Cart/Cart.Slice'
 
 const Product = () => {
     const [products, setProducts] = useState([])
-    const dispatch=useDispatch();
+    const dispatch = useDispatch();
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
             .then((data) => data.json())
             .then((data) => setProducts(data));
     }, [])
-    console.log("products",products);
-    const onAddToCart=(product)=>{
+    console.log("products", products);
+    const onAddToCart = (product) => {
         dispatch(addToCart(product))
 
     }
@@ -24,10 +24,10 @@ const Product = () => {
                     products.map((item) => {
                         return (
                             <div class='item-card' key={item.id}>
-                                {/* <img class='input-image'     src={item.image} alt="" /> */}
-                                <div>
+                                <img class='input-image 'style={{width:"100px",marginLeft:"auto",marginRight:"auto"}} src={item.image} alt="" />
+                                <div >
                                     <p>{item.title}</p>
-                                    <button onClick={()=>onAddToCart(item)}>Add To Cart</button>
+                                    <button  onClick={() => onAddToCart(item)}>Add To Cart</button>
                                 </div>
                             </div>
 
