@@ -13,7 +13,7 @@ const UserLayout = () => {
   return (
     <div>
       {/* <h1 style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-        My Products {products.isLoading && "ProductLoading..."}
+        My Users {users.isLoading && "UserLoading..."}
       </h1> */}
       <table>
         <thead>
