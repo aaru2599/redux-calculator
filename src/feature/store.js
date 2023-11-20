@@ -5,6 +5,7 @@ import createSagaMiddleware from "redux-saga"
 import CalculatorV2Slice from "./CalculatorV2/CalculatorV2.Slice";
 import productV2Slice from "./Products/Product.Slice"
 import UserSlice from "./UsersData/User.Slice";
+import NasaDataSlice from "./NasaApi/NasaData.Slice";
 
 const sagaMiddleware = createSagaMiddleware()
 const store = configureStore({
@@ -12,7 +13,8 @@ const store = configureStore({
     myCart: CartSlice,
     addV2: CalculatorV2Slice,
     myProducts: productV2Slice,
-    myUser: UserSlice
+    myUser: UserSlice,
+    myNasaData:NasaDataSlice
 
 
   },
