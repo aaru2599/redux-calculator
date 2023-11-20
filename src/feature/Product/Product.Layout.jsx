@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import "./Product.css"
 import { useDispatch } from 'react-redux'
 import { addToCart } from './Cart/Cart.Slice'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Product = () => {
     const [products, setProducts] = useState([])
@@ -14,6 +17,8 @@ const Product = () => {
     console.log("products", products);
     const onAddToCart = (product) => {
         dispatch(addToCart(product))
+      console.log("product",products);
+
 
     }
     return (
@@ -28,6 +33,7 @@ const Product = () => {
                                 <div >
                                     <p>{item.title}</p>
                                     <button  onClick={() => onAddToCart(item)}>Add To Cart</button>
+                                    
                                 </div>
                             </div>
 
@@ -36,6 +42,7 @@ const Product = () => {
                     })
                 }
             </div>
+            <ToastContainer/>
         </div>
     )
 }

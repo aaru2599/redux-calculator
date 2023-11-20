@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeFromCart, updateQuantity } from './Cart.Slice'
+
 
 const CartLayout = () => {
   const cartList = useSelector((state) => state)
@@ -9,6 +10,9 @@ const CartLayout = () => {
   const cartData = cartList.myCart.data
   console.log("cartList.myCart", cartData);
 
+  const totalPrice = cartData.reduce((acc, item) => {
+    return acc + (item.price * item.count)
+  }, 0)
 
   const onIncQuantity = (productId) => {
     const productToUpdate = cartData.find((item) => item.id === productId)
@@ -27,9 +31,8 @@ const CartLayout = () => {
     const removeProduct = cartData.find((item) => item.id === productId)
     console.log("removeProduct", removeProduct);
     dispatch(removeFromCart(removeProduct))
-
-
   }
+
   return (
     <div>
       <div>
@@ -63,6 +66,9 @@ const CartLayout = () => {
 
 
         </table>
+      </div>
+      <div>
+        Total price: {totalPrice}
       </div>
     </div >
   )

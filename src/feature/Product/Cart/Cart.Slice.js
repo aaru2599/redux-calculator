@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+
+
+
 const initialState = {
     data: [],
-    count: 0
+    
 }
 const cartSlice = createSlice({
     name: "cart",
@@ -13,6 +16,7 @@ const cartSlice = createSlice({
 
             if (existingProductIndex === -1) {
                 state.data.push({ ...newData, count: 1 })
+                
             }
             else {
                 (state.data[existingProductIndex].count++)
@@ -21,7 +25,7 @@ const cartSlice = createSlice({
 
         },
         removeFromCart: (state, action) => {
-            // console.log("state",state);
+            // cuonsole.log("state",state);
             const productToRemove = action.payload
             console.log("action.payload", productToRemove);
             const productIndex = state.data.findIndex((item) => item.id === productToRemove.id)
