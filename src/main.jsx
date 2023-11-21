@@ -8,6 +8,7 @@ import CalculatorV2Layout from './feature/CalculatorV2/CalculatorV2.Layout.jsx'
 import ProductsLayout from './feature/Products/Products.Layout.jsx'
 import UserLayout from './feature/UsersData/UserLayout.jsx'
 import NasaDataLayout from './feature/NasaApi/NasaData.Layout.jsx'
+import Routes from './feature/UsersData/Navigation/Routes.jsx'
 const cartStyle={
   flex:"50%",
   position:"stickey"
@@ -26,6 +27,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   //   </div>
   // </Provider>
   <Provider store={store}>
-    <NasaDataLayout/>
+    <Routes/>
   </Provider>
 )

@@ -1,5 +1,5 @@
 import { put, takeLatest } from "redux-saga/effects";
-import { getNasaFailed, getNasaSuccess } from "./NasaData.Slice";
+import {  SLICE_WATCHER, getNasaFailed, getNasaSuccess } from "./NasaData.Slice";
 
 const getRequest = async (url) => {
     try {
@@ -15,7 +15,7 @@ const getRequest = async (url) => {
 }
 export function* getNasaDetails() {
     try {
-        const apiResponce =yield getRequest("https://dummyjson.com/products")
+        const apiResponce = yield getRequest("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY")
         if (!apiResponce) {
             yield put(getNasaFailed())
             return;
@@ -27,7 +27,7 @@ export function* getNasaDetails() {
         console.log(err);
         yield put(getNasaFailed())
     }
-} 
-export function* watchGetNasaData(){
-    yield takeLatest("nasadata/getNasaData",getNasaDetails)
+}
+export function* watchGetNasaData() {
+    yield takeLatest(SLICE_WATCHER, getNasaDetails)
 }

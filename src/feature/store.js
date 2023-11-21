@@ -6,6 +6,7 @@ import CalculatorV2Slice from "./CalculatorV2/CalculatorV2.Slice";
 import productV2Slice from "./Products/Product.Slice"
 import UserSlice from "./UsersData/User.Slice";
 import NasaDataSlice from "./NasaApi/NasaData.Slice";
+import UserDetailsSlice from "./UsersData/UserDetails/UserDetails.Slice";
 
 const sagaMiddleware = createSagaMiddleware()
 const store = configureStore({
@@ -14,6 +15,7 @@ const store = configureStore({
     addV2: CalculatorV2Slice,
     myProducts: productV2Slice,
     myUser: UserSlice,
+    myUserDetails:UserDetailsSlice,
     myNasaData:NasaDataSlice
 
 

@@ -14,6 +14,7 @@ const userSlice = createSlice({
         getUserSuccess: (state, action) => {
             state.isLoading = false;
             state.data = action.payload.result
+            console.log("state.data",state.data);
         },
         getUserFailed: (state) => {
             state.isLoading = false;

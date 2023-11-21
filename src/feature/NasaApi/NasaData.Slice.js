@@ -20,5 +20,6 @@ const nasaSlice = createSlice({
         }
     }
 })
+export const SLICE_WATCHER="nasadata/getNasaData";
 export const {getNasaData,getNasaFailed,getNasaSuccess}=nasaSlice.actions
 export default nasaSlice.reducer
