@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Highlighter</title>
+    <style>
+        /* Add your desired styles here */
+        .full-match {
+            background-color: blue;
+            color: white;
+        }
+
+        .partial-match {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="textInput">Enter text to highlight: </label>
+    <input type="text" id="textInput">
+
+    <p class="displayText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio vero expedita eligendi
+        architecto eaque, animi eos tempore obcaecati consequuntur sunt.</p>
+    <p class="displayText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, adipisci!</p>
+    <p class="displayText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam dolore reiciendis nemo
+        excepturi iure voluptatum.</p>
+
+    <script>
+        var inputElement = document.getElementById('textInput');
+        const displayElements = document.querySelectorAll(
+            "*:not(script):not(meta):not(html):not(head):not(body):not(title):not(style):not(input)"
+        );
+        console.log("pageElems", displayElements);
+        var displayArray = Array.from(displayElements);
+
+        console.log("displayArray: ", typeof (displayArray[0].textContent));
+        inputElement.addEventListener('input', checkWord);
+        function checkWord() {
+
+            var userInput = inputElement.value.toLowerCase();
+            displayArray.forEach(checkElement);
+            function checkElement(element) {
+
+                var originalText = element.textContent.toLowerCase();
+                console.log("originalText", originalText);
+
+                var words = originalText.split(' ');
+                console.log("words", words);
+
+                var highlightedText = words.map(function (word) {
+                    console.log();
+                    if (word === userInput) {
+                        return `<span class="full-match">  ${word}  </span>`;
+                    } else if (!userInput.length) {
+                        if (word.includes(userInput)) {
+                            return `<span class="partial-match"> ${word} </span>`;
+                        }
+                    }
+                    else {
+                        return word;
+                    }
+                }).join(' ');
+
+                element.innerHTML = highlightedText;
+            }
+
+
+        }
+
+    </script>
+</body>
+
+</html>

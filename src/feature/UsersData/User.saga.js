@@ -5,6 +5,7 @@ const getRequest = async (url) => {
     try {
         const responce = await fetch(url)
         const parsedResponce = await responce.json()
+        console.log("parsedResponce",responce);
         return parsedResponce
     }
     catch (err) {

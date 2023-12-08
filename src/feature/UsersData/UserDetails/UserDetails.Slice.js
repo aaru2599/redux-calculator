@@ -8,7 +8,7 @@ const userDetailsSlice = createSlice({
     initialState,
     reducers: {
         getUserDetails: (state) => {
-            console.log("state",state);
+            console.log("state in getUserDetails",state);
             state.isLoading = true;
 
         },
